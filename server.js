@@ -10,7 +10,14 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+//app.use(cors());
+
+const corsOptions = {
+  origin: process.env.CLIENT_ORIGIN,
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 
